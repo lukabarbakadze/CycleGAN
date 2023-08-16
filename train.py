@@ -54,10 +54,12 @@ def train():
         min_epochs=1, 
         max_epochs=config.NUM_EPOCHS,
         max_steps=5,
-        logger=logger
+        logger=logger,
+        accelerator=config.DEVICE
     )
     
     trainer.fit(model, loader)
+    trainer.save_checkpoint("checkpoints/last_checkpoint.ckpt")
 
 if __name__=="__main__":
     train()
