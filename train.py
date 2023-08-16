@@ -1,12 +1,13 @@
-import config
 from tqdm import tqdm
 from torchvision.utils import save_image
-from discriminator import Discriminator
-from generator import Generator
-from dataset import CycleGanDataset
-from CycleGAN import CycleGAN_LightningSystem
 import pytorch_lightning as pl
 from pytorch_lightning.loggers import TensorBoardLogger
+
+from model.discriminator import Discriminator
+from model.generator import Generator
+from dataset.dataset import CycleGanDataset
+from model.CycleGAN import CycleGAN_LightningSystem
+import config.config as config
 
 
 def train():

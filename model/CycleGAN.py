@@ -5,7 +5,7 @@ from torchvision.utils import make_grid
 
 import pytorch_lightning as pl
 from torchmetrics.regression import MeanAbsoluteError, MeanSquaredError
-import config
+import config.config as config
 
 class CycleGAN_LightningSystem(pl.LightningModule):
     def __init__(
