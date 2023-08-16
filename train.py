@@ -52,7 +52,8 @@ def train():
     )
     trainer = pl.Trainer(
         min_epochs=1, 
-        max_epochs=config.NUM_EPOCHS, 
+        max_epochs=config.NUM_EPOCHS,
+        max_steps=5,
         logger=logger
     )
     

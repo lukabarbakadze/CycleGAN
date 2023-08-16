@@ -2,4 +2,9 @@ __init__.py
 config/__init__.py
 dataset/__init__.py
 model/__init__.py
+checkpoints/*
+tb_logs/*
+model/__pycache__/*
+config/__pycache__/*
+dataset/__pycache__/*
 data/*
