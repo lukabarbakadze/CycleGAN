@@ -1,2 +1,5 @@
 __init__.py
+config/__init__.py
+dataset/__init__.py
+model/__init__.py
 data/*
