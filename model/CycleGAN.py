@@ -1,3 +1,4 @@
+from datetime import datetime
 from typing import Any
 import torch
 import torch.optim as optim
@@ -65,9 +66,9 @@ class CycleGAN_LightningSystem(pl.LightningModule):
 
         D_loss = (D_O_loss + D_M_loss) / 2
 
-        gen_opt.zero_grad()
+        disc_opt.zero_grad()
         self.manual_backward(D_loss)
-        gen_opt.step()
+        disc_opt.step()
 
         ### optimize Generator
 
@@ -102,15 +103,18 @@ class CycleGAN_LightningSystem(pl.LightningModule):
             identity_other_loss * config.LAMBDA_IDENTITY
         )
 
-        disc_opt.zero_grad()
+        gen_opt.zero_grad()
         self.manual_backward(G_loss)
-        disc_opt.step()
+        gen_opt.step()
 
         self.log_dict({"g_loss": G_loss, "d_loss": D_loss}, prog_bar=True)
 
         if (config.LOG_IMAGE == True) and (batch_idx % 50 == 0):
             grid = make_grid(torch.cat((O,fake_M.detach()), dim=0))
             self.logger.experiment.add_image("Real Image & Monet Style Image", grid, self.global_step)
+        
+        if (batch_idx % 5 == 0) and (batch_idx != 0):
+            torch.save(self.gen_M.state_dict(), f"gen_weights/w_{str(datetime.now())}.pt")
         
     def on_save_checkpoint(self, checkpoint) -> None:
         checkpoint['gen_M_state_dict'] = self.gen_M.state_dict()

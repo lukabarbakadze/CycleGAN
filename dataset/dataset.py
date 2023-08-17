@@ -7,7 +7,6 @@ from torchvision import transforms
 import pytorch_lightning as pl
 
 
-
 class MainDataset(Dataset):
     def __init__(self, root_monet, root_other, transform):
         self.root_monet = root_monet

@@ -10,7 +10,7 @@ from model.CycleGAN import CycleGAN_LightningSystem
 import config.config as config
 
 
-def train():
+def build_model():
     disc_M = Discriminator(
         in_channels=config.IN_CHANNELS, 
         features=config.FEATURES
@@ -46,20 +46,23 @@ def train():
         gen_O=gen_O,
         loader=loader
     )
+    return model, loader
 
+def train():
+    model, loader = build_model()
     logger = TensorBoardLogger(
         "tb_logs",
     )
     trainer = pl.Trainer(
         min_epochs=1, 
         max_epochs=config.NUM_EPOCHS,
-        max_steps=5,
         logger=logger,
-        accelerator=config.DEVICE
+        accelerator=config.DEVICE,
+        default_root_dir="/kaggle/working/"
     )
     
     trainer.fit(model, loader)
-    trainer.save_checkpoint("checkpoints/last_checkpoint.ckpt")
+    trainer.save_checkpoint("/kaggle/working/last_checkpoint.ckpt")
 
 if __name__=="__main__":
     train()

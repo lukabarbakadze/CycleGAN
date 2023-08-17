@@ -45,6 +45,8 @@ class Generator(nn.Module):
             nn.InstanceNorm2d(num_features),
             nn.ReLU(inplace=True),
         )
+
+        
         self.down_blocks = nn.ModuleList(
             [
                 ConvBlock(
