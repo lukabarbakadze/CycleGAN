@@ -11,30 +11,34 @@
 1. Clone this repository:
    ```sh
    git clone https://github.com/lukabarbakadze/CycleGAN.git
-
+   ```
 
 2. Create and activate a virtual environment (e.g., using conda):
    ```sh
    conda create -n myenv python==3.11
    conda activate myenv
+   ```
 
 3. Navigate to the CycleGAN directory and install dependencies:
    ```sh
    cd CycleGAN
    pip install -r requirements.txt
+   ```
 
 ## Dataset Preparation
 Arrange your dataset as follows:
-CycleGAN/
-├── data/
-│   ├── monet_jpg/
-│   │   ├── image1.jpg
-│   │   ├── image2.jpg
-│   │   └── ...
-│   ├── other_jpg/
-│   │   ├── image1.jpg
-│   │   ├── image2.jpg
-│   │   └── ...
+   ```sh
+   CycleGAN/
+   ├── data/
+   │   ├── monet_jpg/
+   │   │   ├── image1.jpg
+   │   │   ├── image2.jpg
+   │   │   └── ...
+   │   ├── other_jpg/
+   │   │   ├── image1.jpg
+   │   │   ├── image2.jpg
+   │   │   └── ...
+   ```
 
 ## Inference
 
@@ -46,10 +50,12 @@ An inference script is provided in inference.ipynb file.
 2. Run the training script:
    ```sh
    python scripts/train.py
+   ```
 
 3. Track training logs using TensorBoard:
    ```sh
    tensorboard --logdir=tb_logs/lightning_logs
+   ```
 
 ## Acknowledgements
 * [Paper: Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks](https://arxiv.org/abs/1703.10593)
