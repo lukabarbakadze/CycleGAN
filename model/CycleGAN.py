@@ -18,8 +18,8 @@ class CycleGAN_LightningSystem(pl.LightningModule):
             loader
         ):
         super().__init__()
-        self.disc_M = disc_M # gen_H
-        self.disc_O = disc_O # gen_Z
+        self.disc_M = disc_M
+        self.disc_O = disc_O
         self.gen_M = gen_M
         self.gen_O = gen_O
         self.loader = loader
@@ -43,9 +43,6 @@ class CycleGAN_LightningSystem(pl.LightningModule):
     
     def training_step(self, batch, batch_idx):
         gen_opt, disc_opt = self.optimizers()
-        
-        # Monet (zebra, Z)
-        # Other (horse, H)
 
         M, O = batch
 
@@ -71,9 +68,6 @@ class CycleGAN_LightningSystem(pl.LightningModule):
         disc_opt.step()
 
         ### optimize Generator
-
-        # Monet (zebra, Z)
-        # Other (horse, H)
 
         # adversarial loss for both generators
         D_O_fake = self.disc_O(fake_O)
