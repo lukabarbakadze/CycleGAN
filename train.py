@@ -58,11 +58,10 @@ def train():
         max_epochs=config.NUM_EPOCHS,
         logger=logger,
         accelerator=config.DEVICE,
-        default_root_dir="/kaggle/working/"
     )
     
     trainer.fit(model, loader)
-    trainer.save_checkpoint("/kaggle/working/last_checkpoint.ckpt")
+    trainer.save_checkpoint("last_checkpoint.ckpt")
 
 if __name__=="__main__":
     train()
