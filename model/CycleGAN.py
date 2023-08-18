@@ -113,9 +113,6 @@ class CycleGAN_LightningSystem(pl.LightningModule):
             grid = make_grid(torch.cat((O,fake_M.detach()), dim=0))
             self.logger.experiment.add_image("Real Image & Monet Style Image", grid, self.global_step)
         
-        if (batch_idx % 5 == 0) and (batch_idx != 0):
-            torch.save(self.gen_M.state_dict(), f"gen_weights/w_{str(datetime.now())}.pt")
-        
     def on_save_checkpoint(self, checkpoint) -> None:
         checkpoint['gen_M_state_dict'] = self.gen_M.state_dict()
 

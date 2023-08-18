@@ -14,18 +14,9 @@ IN_CHANNELS = 3
 NUM_FEATURES = 64
 FEATURES = [64, 128, 256, 512]
 NUM_RESIDUALS = 9
-
-# for logging image
 LOG_IMAGE = True
 LOG_IMAGE_DIR = "grid_images"
 
-
-# LOAD_MODEL = True
-# SAVE_MODEL = True
-# CHECKPOINT_GEN_H = "genh.pth.tar"
-# CHECKPOINT_GEN_H = "genz.pth.tar"
-# CHECKPOINT_GEN_H = "critich.pth.tar"
-# CHECKPOINT_GEN_H = "criticz.pth.tar"
 
 TRANSFORMS = transforms.Compose(
     [
