@@ -3,7 +3,6 @@ config/__init__.py
 dataset/__init__.py
 model/__init__.py
 callbacks/__init__.py
-gen_weights/*
 checkpoints/*
 tb_logs/*
 model/__pycache__/*

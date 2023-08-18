@@ -7,6 +7,10 @@
 - [Training](#training)
 - [Acknowledgements](#acknowledgements)
 
+## Results
+![1](https://github.com/lukabarbakadze/CycleGAN/blob/main/test_imgs/results.png)
+![2](https://github.com/lukabarbakadze/CycleGAN/blob/main/test_imgs/monet.png)
+
 ## Installation
 1. Clone this repository:
    ```sh
